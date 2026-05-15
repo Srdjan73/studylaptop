@@ -1,0 +1,99 @@
+<!DOCTYPE html>
+  'Engineering / CS',
+  'Design / Creative',
+  'Learning / Teaching',
+  'Other'
+];
+
+const osOptions = ['Any', 'Windows', 'macOS'];
+
+const needs = [
+  'Lightweight',
+  'Long Battery',
+  'Powerful CPU',
+  'Touchscreen',
+  'Large Screen',
+  'Quiet Fan'
+];
+
+const laptops = [
+  {
+    name: 'Apple MacBook Air 13 M4',
+    price: 949,
+    rating: 4.9,
+    badge: 'Top Pick',
+    image: 'https://images.unsplash.com/photo-1517336714739-489689fd1ca8?auto=format&fit=crop&w=800&q=80',
+    description: 'Excellent battery life and premium build.',
+    link: 'https://www.amazon.de/s?k=macbook+air+m4&tag=studylaptop20-20'
+  },
+  {
+    name: 'Acer Swift Go 14',
+    price: 599,
+    rating: 4.6,
+    badge: 'Best Value',
+    image: 'https://images.unsplash.com/photo-1496181133206-80ce9b88a853?auto=format&fit=crop&w=800&q=80',
+    description: 'Affordable and lightweight.',
+    link: 'https://www.amazon.de/s?k=acer+swift+go+14&tag=studylaptop20-20'
+  },
+  {
+    name: 'Dell XPS 13',
+    price: 1149,
+    rating: 4.8,
+    badge: '',
+    image: 'https://images.unsplash.com/photo-1518770660439-4636190af475?auto=format&fit=crop&w=800&q=80',
+    description: 'Premium Windows ultrabook.',
+    link: 'https://www.amazon.de/s?k=dell+xps+13&tag=studylaptop20-20'
+  }
+];
+
+function createButtons(containerId, items) {
+  const container = document.getElementById(containerId);
+  container.innerHTML = items.map(item =>
+    `<button type="button" class="bg-zinc-800 hover:bg-zinc-700 px-4 py-3 rounded-2xl text-sm">${item}</button>`
+  ).join('');
+}
+
+function getRecommendations() {
+  const budget = parseInt(document.getElementById('budget').value);
+  const results = laptops.filter(l => l.price <= budget + 300);
+
+  document.getElementById('quiz').classList.add('hidden');
+  document.getElementById('results').classList.remove('hidden');
+
+  document.getElementById('recommendations').innerHTML = results.map(l => `
+    <div class="bg-zinc-900 rounded-3xl overflow-hidden shadow-lg">
+      <img src="${l.image}" alt="${l.name}" class="w-full h-56 object-cover">
+      <div class="p-6">
+        ${l.badge ? `<span class="inline-block bg-emerald-600 text-white text-xs px-3 py-1 rounded-full mb-3">${l.badge}</span>` : ''}
+        <h3 class="text-xl font-bold">${l.name}</h3>
+        <p class="text-emerald-400 text-3xl font-bold mt-2">€${l.price}</p>
+        <p class="text-yellow-400 mt-2">⭐ ${l.rating}</p>
+        <p class="text-zinc-400 mt-3">${l.description}</p>
+        <a href="${l.link}" target="_blank" rel="nofollow sponsored noopener"
+           class="block mt-5 text-center bg-white text-zinc-900 py-3 rounded-2xl font-semibold">
+          Check Price on Amazon
+        </a>
+      </div>
+    </div>
+  `).join('');
+}
+
+function resetQuiz() {
+  document.getElementById('results').classList.add('hidden');
+  document.getElementById('quiz').classList.remove('hidden');
+}
+
+// Init
+createButtons('majorButtons', majors);
+createButtons('osButtons', osOptions);
+createButtons('needsButtons', needs);
+
+document.getElementById('budget').addEventListener('input', function() {
+  document.getElementById('budgetValue').textContent = this.value;
+});
+
+document.getElementById('year').textContent = new Date().getFullYear();
+</script>
+
+</body>
+</html>
