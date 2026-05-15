@@ -1,4 +1,136 @@
 <!DOCTYPE html>
+<html lang="en" class="scroll-smooth">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>StudyLaptop.com | Best Student Laptops 2026</title>
+<meta name="description" content="Find the best student laptop for your budget and major. Compare MacBook, Dell, Lenovo, Acer and more.">
+
+<!-- Cookie Consent -->
+<script id="cookieyes" type="text/javascript"
+src="https://cdn-cookieyes.com/client_data/eba4867a8579717b8651f8e0/script.js"></script>
+
+<!-- Google Analytics -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-45S49P87JJ"></script>
+<script>
+window.dataLayer = window.dataLayer || [];
+function gtag(){dataLayer.push(arguments);}
+gtag('js', new Date());
+gtag('config', 'G-45S49P87JJ');
+</script>
+
+<!-- Google AdSense -->
+<script async
+src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-3698071056074058"
+crossorigin="anonymous"></script>
+
+<!-- Tailwind -->
+<script src="https://cdn.tailwindcss.com"></script>
+
+<!-- Font Awesome -->
+<link rel="stylesheet"
+href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.6.0/css/all.min.css">
+</head>
+
+<body class="bg-zinc-950 text-zinc-100">
+
+<div class="max-w-7xl mx-auto px-4 py-8">
+
+  <!-- Header -->
+  <header class="text-center py-10 border-b border-zinc-800">
+    <h1 class="text-5xl font-bold">🎓 StudyLaptop.com</h1>
+    <p class="text-emerald-400 text-xl mt-2">Best Student Laptops 2026</p>
+  </header>
+
+  <!-- Quiz -->
+  <section id="quiz" class="max-w-4xl mx-auto mt-12 bg-zinc-900 rounded-3xl p-8">
+    <h2 class="text-3xl font-bold mb-8">Find your perfect laptop</h2>
+
+    <!-- Budget -->
+    <label class="block mb-2">Budget (€)</label>
+    <input id="budget" type="range" min="400" max="2500" step="50" value="1000"
+           class="w-full accent-emerald-500">
+    <p class="mt-2 text-zinc-400">€<span id="budgetValue">1000</span></p>
+
+    <!-- Major -->
+    <div class="mt-8">
+      <label class="block mb-3">Field of Study</label>
+      <div id="majorButtons" class="grid grid-cols-2 md:grid-cols-3 gap-3"></div>
+    </div>
+
+    <!-- OS -->
+    <div class="mt-8">
+      <label class="block mb-3">Preferred Operating System</label>
+      <div id="osButtons" class="grid grid-cols-3 gap-3"></div>
+    </div>
+
+    <!-- Needs -->
+    <div class="mt-8">
+      <label class="block mb-3">Must-have Features</label>
+      <div id="needsButtons" class="grid grid-cols-2 md:grid-cols-3 gap-3"></div>
+    </div>
+
+    <button onclick="getRecommendations()"
+            class="w-full mt-8 bg-emerald-600 hover:bg-emerald-500 py-4 rounded-2xl text-lg font-semibold">
+      Show Results
+    </button>
+  </section>
+
+  <!-- Results -->
+  <section id="results" class="hidden mt-16">
+    <h2 class="text-4xl font-bold text-center mb-10">Your Top Recommendations</h2>
+
+    <div id="recommendations" class="grid md:grid-cols-2 lg:grid-cols-3 gap-8"></div>
+
+    <div class="text-center mt-10">
+      <button onclick="resetQuiz()"
+              class="text-emerald-400 hover:text-emerald-300">
+        ← Start Over
+      </button>
+    </div>
+  </section>
+
+  <!-- Newsletter -->
+  <section class="mt-20 bg-zinc-900 rounded-3xl p-8 text-center">
+    <h3 class="text-2xl font-bold mb-3">Get laptop deals</h3>
+    <p class="text-zinc-400 mb-6">Monthly recommendations and student discounts.</p>
+
+    <form action="https://formspree.io/f/xlgzvpzz" method="POST"
+          class="max-w-xl mx-auto flex flex-col sm:flex-row gap-3">
+      <input type="email"
+             name="email"
+             required
+             placeholder="Your email"
+             class="flex-1 bg-zinc-800 border border-zinc-700 rounded-2xl px-5 py-4">
+      <button type="submit"
+              class="bg-emerald-600 hover:bg-emerald-500 px-8 rounded-2xl font-semibold">
+        Join
+      </button>
+    </form>
+  </section>
+
+  <!-- Footer -->
+  <footer class="mt-20 border-t border-zinc-800 pt-10 text-center text-zinc-500 text-sm">
+    <p>© <span id="year"></span> StudyLaptop.com</p>
+
+    <div class="mt-4 flex justify-center gap-6 flex-wrap">
+      <a href="privacy.html" class="hover:text-zinc-300">Privacy Policy</a>
+      <a href="terms.html" class="hover:text-zinc-300">Terms of Service</a>
+      <a href="disclaimer.html" class="hover:text-zinc-300">Affiliate Disclaimer</a>
+      <a href="impressum.html" class="hover:text-zinc-300">Impressum</a>
+    </div>
+
+    <p class="mt-6 text-xs max-w-2xl mx-auto">
+      As an Amazon Associate, StudyLaptop.com earns from qualifying purchases.
+      This does not affect the price you pay.
+    </p>
+  </footer>
+
+</div>
+
+<script>
+const majors = [
+  'General / Business',
   'Engineering / CS',
   'Design / Creative',
   'Learning / Teaching',
@@ -49,7 +181,10 @@ const laptops = [
 function createButtons(containerId, items) {
   const container = document.getElementById(containerId);
   container.innerHTML = items.map(item =>
-    `<button type="button" class="bg-zinc-800 hover:bg-zinc-700 px-4 py-3 rounded-2xl text-sm">${item}</button>`
+    `<button type="button"
+      class="bg-zinc-800 hover:bg-zinc-700 px-4 py-3 rounded-2xl text-sm">
+      ${item}
+    </button>`
   ).join('');
 }
 
@@ -64,12 +199,20 @@ function getRecommendations() {
     <div class="bg-zinc-900 rounded-3xl overflow-hidden shadow-lg">
       <img src="${l.image}" alt="${l.name}" class="w-full h-56 object-cover">
       <div class="p-6">
-        ${l.badge ? `<span class="inline-block bg-emerald-600 text-white text-xs px-3 py-1 rounded-full mb-3">${l.badge}</span>` : ''}
+        ${l.badge ? `
+          <span class="inline-block bg-emerald-600 text-white text-xs px-3 py-1 rounded-full mb-3">
+            ${l.badge}
+          </span>` : ''
+        }
+
         <h3 class="text-xl font-bold">${l.name}</h3>
         <p class="text-emerald-400 text-3xl font-bold mt-2">€${l.price}</p>
         <p class="text-yellow-400 mt-2">⭐ ${l.rating}</p>
         <p class="text-zinc-400 mt-3">${l.description}</p>
-        <a href="${l.link}" target="_blank" rel="nofollow sponsored noopener"
+
+        <a href="${l.link}"
+           target="_blank"
+           rel="nofollow sponsored noopener"
            class="block mt-5 text-center bg-white text-zinc-900 py-3 rounded-2xl font-semibold">
           Check Price on Amazon
         </a>
@@ -83,7 +226,6 @@ function resetQuiz() {
   document.getElementById('quiz').classList.remove('hidden');
 }
 
-// Init
 createButtons('majorButtons', majors);
 createButtons('osButtons', osOptions);
 createButtons('needsButtons', needs);
