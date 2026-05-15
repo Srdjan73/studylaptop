@@ -1,6 +1,20 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
+
   <url>
     <loc>https://studylaptop.com/</loc>
   </url>
+
+  <url>
+    <loc>https://studylaptop.com/best-laptops-engineering.html</loc>
+  </url>
+
+  <url>
+    <loc>https://studylaptop.com/budget-laptops-under-800.html</loc>
+  </url>
+
+  <url>
+    <loc>https://studylaptop.com/macbook-vs-dell.html</loc>
+  </url>
+
 </urlset>
