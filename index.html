@@ -226,9 +226,31 @@ function resetQuiz() {
   document.getElementById('quiz').classList.remove('hidden');
 }
 
-createButtons('majorButtons', majors);
-createButtons('osButtons', osOptions);
-createButtons('needsButtons', needs);
+<script>
+function createButtons(containerId, items) {
+  const container = document.getElementById(containerId);
+
+  container.innerHTML = items.map(item => `
+    <button
+      type="button"
+      class="option-btn bg-zinc-800 hover:bg-zinc-700 px-4 py-3 rounded-2xl text-sm transition-all duration-200"
+    >
+      ${item}
+    </button>
+  `).join('');
+
+  const buttons = container.querySelectorAll('.option-btn');
+
+  buttons.forEach(button => {
+    button.addEventListener('click', () => {
+      button.classList.toggle('bg-emerald-600');
+      button.classList.toggle('text-white');
+      button.classList.toggle('ring-2');
+      button.classList.toggle('ring-emerald-400');
+    });
+  });
+}
+</script>
 
 document.getElementById('budget').addEventListener('input', function() {
   document.getElementById('budgetValue').textContent = this.value;
