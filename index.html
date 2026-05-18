@@ -208,33 +208,47 @@ function createButtons(containerId,items,type){
 }
 
 function scoreLaptop(laptop){
-  let score=50;
+  let score = 50;
 
-  if(selectedMajor==='Engineering / CS'){
-    if(laptop.os==='Windows')score+=12;
-    if(laptop.power>=7)score+=15;
-  }
-  if(selectedMajor==='Design / Creative'){
-    if(laptop.name.includes('MacBook'))score+=18;
-    if(laptop.name.includes('OLED'))score+=12;
-  }
-  if(selectedMajor==='Learning / Teaching'){
-    if(laptop.battery>=14)score+=14;
-    if(laptop.weight<=1.35)score+=10;
-  }
-  if(selectedMajor==='General / Business'){
-    if(laptop.battery>=12)score+=10;
-    if(laptop.weight<=1.4)score+=10;
+  // Match by study field
+  if (selectedMajor === 'Engineering / CS') {
+    if (laptop.os === 'Windows') score += 20;
+    if (laptop.power >= 7) score += 20;
+    if (laptop.name.includes('Dell') || laptop.name.includes('ASUS')) score += 10;
   }
 
-  if(selectedNeeds.includes('Lightweight')&&laptop.weight<=1.35)score+=15;
-  if(selectedNeeds.includes('Long Battery')&&laptop.battery>=14)score+=15;
-  if(selectedNeeds.includes('Powerful CPU')&&laptop.power>=7)score+=15;
-  if(selectedNeeds.includes('Large Screen'))score+=5;
-  if(selectedNeeds.includes('Quiet Fan')&&laptop.name.includes('MacBook'))score+=10;
-  if(selectedNeeds.includes('Touchscreen')&&laptop.name.includes('Surface'))score+=10;
+  if (selectedMajor === 'Design / Creative') {
+    if (laptop.os === 'macOS') score += 25;
+    if (laptop.name.includes('OLED')) score += 15;
+    if (laptop.power >= 7) score += 10;
+  }
 
-  return Math.min(score,99);
+  if (selectedMajor === 'Learning / Teaching') {
+    if (laptop.battery >= 14) score += 20;
+    if (laptop.weight <= 1.35) score += 15;
+    if (laptop.name.includes('MacBook') || laptop.name.includes('Surface')) score += 10;
+  }
+
+  if (selectedMajor === 'General / Business') {
+    if (laptop.battery >= 12) score += 15;
+    if (laptop.weight <= 1.4) score += 15;
+    if (laptop.price <= 1000) score += 10;
+  }
+
+  // Match by selected needs
+  if (selectedNeeds.includes('Lightweight') && laptop.weight <= 1.35) score += 15;
+  if (selectedNeeds.includes('Long Battery') && laptop.battery >= 14) score += 15;
+  if (selectedNeeds.includes('Powerful CPU') && laptop.power >= 7) score += 15;
+  if (selectedNeeds.includes('Large Screen') && laptop.name.includes('Surface') === false) score += 5;
+  if (selectedNeeds.includes('Quiet Fan') && laptop.name.includes('MacBook')) score += 10;
+  if (selectedNeeds.includes('Touchscreen') && laptop.name.includes('Surface')) score += 15;
+
+  // Budget bonus
+  const budget = parseInt(document.getElementById('budget').value);
+  if (laptop.price <= budget) score += 10;
+
+  return Math.min(score, 99);
+}
 }
 
 function sortResults(results){
