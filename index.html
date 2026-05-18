@@ -312,7 +312,16 @@ function getRecommendations(){
 
 <p class="text-zinc-400 mt-4">${l.description}</p>
 
-        <a href="${l.link}" target="_blank" rel="nofollow sponsored noopener" class="block mt-5 text-center bg-white text-zinc-900 py-3 rounded-2xl font-semibold hover:bg-zinc-200">Check Price on Amazon</a>
+       <a href="${l.link}"
+   target="_blank"
+   rel="nofollow sponsored noopener"
+   class="block mt-5 text-center bg-emerald-600 hover:bg-emerald-500 text-white py-3 rounded-2xl font-semibold">
+  View Deal →
+</a>
+
+<p class="text-xs text-zinc-500 text-center mt-2">
+  Price may change • Check latest offer
+</p>
       </div>
     </div>`).join(''):`<div class="col-span-full bg-zinc-900 rounded-3xl p-8 text-center"><h3 class="text-2xl font-bold mb-3">No exact match found</h3><p class="text-zinc-400">Try increasing your budget or choosing “Any” operating system.</p></div>`;
 
