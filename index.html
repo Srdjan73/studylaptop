@@ -292,7 +292,25 @@ function getRecommendations(){
 
 <p class="text-emerald-400 text-3xl font-bold mt-2">€${l.price}</p>
 <p class="text-yellow-400 mt-2">⭐ ${l.rating}</p>
-<p class="text-zinc-400 mt-3">${l.description}</p>
+
+<div class="grid grid-cols-3 gap-2 mt-4 text-xs text-center">
+  <div class="bg-zinc-800 rounded-xl p-3">
+    <p class="text-zinc-500">OS</p>
+    <p class="font-semibold text-white">${l.os}</p>
+  </div>
+
+  <div class="bg-zinc-800 rounded-xl p-3">
+    <p class="text-zinc-500">Battery</p>
+    <p class="font-semibold text-white">${l.battery}h</p>
+  </div>
+
+  <div class="bg-zinc-800 rounded-xl p-3">
+    <p class="text-zinc-500">Weight</p>
+    <p class="font-semibold text-white">${l.weight}kg</p>
+  </div>
+</div>
+
+<p class="text-zinc-400 mt-4">${l.description}</p>
 
         <a href="${l.link}" target="_blank" rel="nofollow sponsored noopener" class="block mt-5 text-center bg-white text-zinc-900 py-3 rounded-2xl font-semibold hover:bg-zinc-200">Check Price on Amazon</a>
       </div>
