@@ -257,7 +257,39 @@ function sortResults(results){
   if(order==='rating')return results.sort((a,b)=>b.rating-a.rating);
   return results.sort((a,b)=>b.matchScore-a.matchScore);
 }
+function getWhyText(laptop){
+  let reasons=[];
 
+  if(selectedMajor==='Engineering / CS' && laptop.os==='Windows'){
+    reasons.push('✔ Works well with engineering software');
+  }
+
+  if(selectedMajor==='Design / Creative' && laptop.name.includes('MacBook')){
+    reasons.push('✔ Great for creative apps');
+  }
+
+  if(selectedNeeds.includes('Lightweight') && laptop.weight<=1.35){
+    reasons.push('✔ Easy to carry around campus');
+  }
+
+  if(selectedNeeds.includes('Long Battery') && laptop.battery>=14){
+    reasons.push('✔ Lasts all day on battery');
+  }
+
+  if(selectedNeeds.includes('Powerful CPU') && laptop.power>=7){
+    reasons.push('✔ Strong performance for demanding tasks');
+  }
+
+  if(selectedNeeds.includes('Quiet Fan') && laptop.name.includes('MacBook')){
+    reasons.push('✔ Silent / fanless design');
+  }
+
+  if(reasons.length===0){
+    reasons.push('✔ Good overall match for your needs');
+  }
+
+  return reasons.join('<br>');
+}
 function getRecommendations(){
   if(!selectedMajor){alert('Please select your field of study first.');return;}
 
