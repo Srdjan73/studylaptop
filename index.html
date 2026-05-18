@@ -288,6 +288,16 @@ function getRecommendations(){
         <p class="text-emerald-400 text-3xl font-bold mt-2">€${l.price}</p>
         <p class="text-yellow-400 mt-2">⭐ ${l.rating}</p>
         <p class="text-zinc-400 mt-3">${l.description}</p>
+
+<p class="text-sm text-emerald-400 mt-3">
+  Why this fits you: ${
+    selectedMajor === 'Engineering / CS' ? 'Good for programming, MATLAB, and Windows-based tools.' :
+    selectedMajor === 'Design / Creative' ? 'Great for creative work, design apps, and visual tasks.' :
+    selectedMajor === 'Learning / Teaching' ? 'Lightweight with long battery life for classes and study.' :
+    selectedMajor === 'General / Business' ? 'Balanced performance for everyday student tasks.' :
+    'Solid all-around student laptop.'
+  }
+</p>
         <a href="${l.link}" target="_blank" rel="nofollow sponsored noopener" class="block mt-5 text-center bg-white text-zinc-900 py-3 rounded-2xl font-semibold hover:bg-zinc-200">Check Price on Amazon</a>
       </div>
     </div>`).join(''):`<div class="col-span-full bg-zinc-900 rounded-3xl p-8 text-center"><h3 class="text-2xl font-bold mb-3">No exact match found</h3><p class="text-zinc-400">Try increasing your budget or choosing “Any” operating system.</p></div>`;
