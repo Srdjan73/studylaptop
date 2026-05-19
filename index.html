@@ -353,7 +353,7 @@ function getRecommendations(){
     .filter(laptop=>selectedOS==='Any'||laptop.os===selectedOS)
     .map(laptop=>({...laptop,matchScore:scoreLaptop(laptop)}));
 
-  results=sortResults(results);
+    results = sortResults(results);
 
   document.getElementById('quiz').classList.add('hidden');
   document.getElementById('results').classList.remove('hidden');
