@@ -179,12 +179,150 @@ const majors = [
 const osOptions=['Any','Windows','macOS'];
 const needs=['Lightweight','Long Battery','Powerful CPU','Touchscreen','Large Screen','Quiet Fan'];
 
-const laptops=[
-{name:'Apple MacBook Air 13 M4',price:949,os:'macOS',rating:4.9,badge:'Top Pick',weight:1.24,battery:18,power:8,image:'https://images.unsplash.com/photo-1517336714739-489689fd1ca8?auto=format&fit=crop&w=800&q=80',description:'Excellent battery life and premium build. Great for writing, research, business, teaching, and creative work.',link:'https://www.amazon.de/s?k=Apple+MacBook+Air+M4+13+2026&tag=studylaptop20-20'},
-{name:'Acer Swift Go 14',price:599,os:'Windows',rating:4.6,badge:'Best Value',weight:1.3,battery:11,power:6,image:'https://images.unsplash.com/photo-1496181133206-80ce9b88a853?auto=format&fit=crop&w=800&q=80',description:'Affordable, lightweight, and suitable for everyday student work.',link:'https://www.amazon.de/s?k=Acer+Swift+Go+14+OLED&tag=studylaptop20-20'},
-{name:'Dell XPS 13',price:1149,os:'Windows',rating:4.8,badge:'Premium Pick',weight:1.17,battery:12,power:8,image:'https://images.unsplash.com/photo-1518770660439-4636190af475?auto=format&fit=crop&w=800&q=80',description:'Premium Windows ultrabook for students who want portability and strong performance.',link:'https://www.amazon.de/s?k=Dell+XPS+13+13.4+inch+2026&tag=studylaptop20-20'},
-{name:'ASUS Zenbook 14 OLED',price:899,os:'Windows',rating:4.7,badge:'Great Screen',weight:1.2,battery:14,power:7,image:'https://images.unsplash.com/photo-1541807084-5c52b6b3adef?auto=format&fit=crop&w=800&q=80',description:'Light Windows laptop with a sharp OLED display for study, design, and everyday work.',link:'https://www.amazon.de/s?k=ASUS+Zenbook+14+OLED+2026&tag=studylaptop20-20'},
-{name:'Microsoft Surface Laptop 7',price:999,os:'Windows',rating:4.7,badge:'Clean Design',weight:1.34,battery:14,power:7,image:'https://images.unsplash.com/photo-1525547719571-a2d4ac8945e2?auto=format&fit=crop&w=800&q=80',description:'Minimal, well-built Windows laptop with good portability and battery life.',link:'https://www.amazon.de/s?k=Microsoft+Surface+Laptop+13.8&tag=studylaptop20-20'}
+const laptops = [
+  {
+    name: 'Apple MacBook Air M3',
+    price: 999,
+    os: 'macOS',
+    rating: 4.9,
+    badge: 'Top Pick',
+    weight: 1.24,
+    battery: 18,
+    power: 8,
+    image: 'https://images.unsplash.com/photo-1517336714731-489689fd1ca8',
+    description: 'Excellent battery life and premium build. Perfect for students and everyday tasks.',
+    link: '#'
+  },
+  {
+    name: 'Apple MacBook Pro 14"',
+    price: 1799,
+    os: 'macOS',
+    rating: 4.9,
+    badge: 'Premium',
+    weight: 1.6,
+    battery: 17,
+    power: 10,
+    image: 'https://images.unsplash.com/photo-1517336714731-489689fd1ca8',
+    description: 'High performance laptop for demanding creative and development work.',
+    link: '#'
+  },
+  {
+    name: 'Acer Swift Go 14',
+    price: 599,
+    os: 'Windows',
+    rating: 4.6,
+    badge: 'Best Value',
+    weight: 1.3,
+    battery: 11,
+    power: 6,
+    image: 'https://images.unsplash.com/photo-1496181133206-80ce9b88a853',
+    description: 'Affordable and lightweight, ideal for everyday student use.',
+    link: '#'
+  },
+  {
+    name: 'ASUS Zenbook 14 OLED',
+    price: 899,
+    os: 'Windows',
+    rating: 4.7,
+    badge: 'Great Screen',
+    weight: 1.2,
+    battery: 14,
+    power: 7,
+    image: 'https://images.unsplash.com/photo-1541807084-5c52b6b3ad0e',
+    description: 'Beautiful OLED display, great for design and media.',
+    link: '#'
+  },
+  {
+    name: 'Dell XPS 13',
+    price: 1149,
+    os: 'Windows',
+    rating: 4.8,
+    badge: 'Premium Pick',
+    weight: 1.17,
+    battery: 12,
+    power: 8,
+    image: 'https://images.unsplash.com/photo-1518770660439-4636190af475',
+    description: 'Premium ultrabook with strong performance and build quality.',
+    link: '#'
+  },
+  {
+    name: 'Microsoft Surface Laptop 5',
+    price: 999,
+    os: 'Windows',
+    rating: 4.7,
+    badge: 'Clean Design',
+    weight: 1.34,
+    battery: 14,
+    power: 7,
+    image: 'https://images.unsplash.com/photo-1525547719571-a2d4ac8945e2',
+    description: 'Minimal design, excellent portability and battery life.',
+    link: '#'
+  },
+  {
+    name: 'HP Pavilion 14',
+    price: 649,
+    os: 'Windows',
+    rating: 4.5,
+    badge: 'Budget Pick',
+    weight: 1.4,
+    battery: 10,
+    power: 6,
+    image: 'https://images.unsplash.com/photo-1517336714731-489689fd1ca8',
+    description: 'Solid budget laptop for students with everyday needs.',
+    link: '#'
+  },
+  {
+    name: 'HP Envy x360',
+    price: 899,
+    os: 'Windows',
+    rating: 4.6,
+    badge: 'Flexible',
+    weight: 1.5,
+    battery: 12,
+    power: 7,
+    image: 'https://images.unsplash.com/photo-1496181133206-80ce9b88a853',
+    description: '2-in-1 convertible laptop, great for notes and creativity.',
+    link: '#'
+  },
+  {
+    name: 'Lenovo IdeaPad Slim 5',
+    price: 699,
+    os: 'Windows',
+    rating: 4.5,
+    badge: 'Balanced',
+    weight: 1.45,
+    battery: 11,
+    power: 6,
+    image: 'https://images.unsplash.com/photo-1518770660439-4636190af475',
+    description: 'Reliable mid-range laptop with good performance.',
+    link: '#'
+  },
+  {
+    name: 'Samsung Galaxy Book4',
+    price: 849,
+    os: 'Windows',
+    rating: 4.6,
+    badge: 'Lightweight',
+    weight: 1.2,
+    battery: 13,
+    power: 7,
+    image: 'https://images.unsplash.com/photo-1541807084-5c52b6b3ad0e',
+    description: 'Slim and portable laptop with modern design.',
+    link: '#'
+  },
+  {
+    name: 'Acer Aspire 5',
+    price: 549,
+    os: 'Windows',
+    rating: 4.4,
+    badge: 'Cheap Option',
+    weight: 1.7,
+    battery: 9,
+    power: 5,
+    image: 'https://images.unsplash.com/photo-1496181133206-80ce9b88a853',
+    description: 'Very affordable laptop for basic student tasks.',
+    link: '#'
+  }
 ];
 
 let selectedMajor=null;
