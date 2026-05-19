@@ -182,6 +182,38 @@ let selectedMajor=null;
 let selectedOS='Any';
 let selectedNeeds=[];
 
+  function getWhyText(l) {
+  let reasons = [];
+
+  const budget = parseInt(document.getElementById('budget').value);
+
+  if (selectedMajor === 'Engineering / CS') {
+    reasons.push('✔ Handles coding and heavy software smoothly');
+  }
+
+  if (selectedOS === 'macOS' && l.os === 'macOS') {
+    reasons.push('✔ Perfect match for macOS preference');
+  }
+
+  if (selectedNeeds.includes('Lightweight') && l.weight < 1.3) {
+    reasons.push('✔ Easy to carry around campus');
+  }
+
+  if (selectedNeeds.includes('Long Battery') && l.battery >= 12) {
+    reasons.push('✔ All-day battery life');
+  }
+
+  if (budget >= l.price) {
+    reasons.push('✔ Fits your budget');
+  }
+
+  if (reasons.length === 0) {
+    reasons.push('✔ Good curated student pick');
+  }
+
+  return reasons.slice(0, 3).join('<br>');
+}
+  
 function setSelectedButton(buttons,activeButton){
   buttons.forEach(btn=>{btn.classList.remove('option-selected');btn.setAttribute('aria-pressed','false');});
   activeButton.classList.add('option-selected');
