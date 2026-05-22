@@ -640,8 +640,11 @@ function getRecommendations(){
 
   document.getElementById('recommendations').innerHTML=results.length?results.map(l=>`
   <div class="bg-zinc-900 rounded-3xl overflow-hidden shadow-lg border border-zinc-800 hover:scale-[1.02] hover:shadow-2xl transition duration-300">
-   <img src="${l.image}" alt="${l.name}" class="w-full h-56 object-cover hover:scale-105 transition duration-300">
-
+  <img src="${l.image}" 
+     alt="${l.name}" 
+     loading="lazy"
+     decoding="async"
+     class="w-full h-56 object-cover hover:scale-105 transition duration-300">
     <div class="p-6">
      <div class="flex items-center justify-between gap-3 mb-4">
   ${l.badge ? `<span class="inline-block bg-emerald-600 text-white text-xs px-3 py-1 rounded-full">🔥 ${l.badge}</span>` : '<span></span>'}
