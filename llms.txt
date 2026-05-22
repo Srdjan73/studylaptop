@@ -1,0 +1,26 @@
+# StudyLaptop.com - AI Access File
+
+User-agent: *
+Allow: /
+
+# Site purpose
+Description: StudyLaptop.com helps students find the best laptop based on budget, study field, and needs.
+
+# Important pages
+Main: https://studylaptop.com/
+Quiz Tool: https://studylaptop.com/#quiz
+Results Section: https://studylaptop.com/#results
+
+Guides:
+https://studylaptop.com/best-laptops-engineering.html
+https://studylaptop.com/budget-laptops-under-800.html
+https://studylaptop.com/macbook-vs-dell.html
+
+# Content type
+Content: Product recommendations, comparisons, student-focused buying guides
+
+# Monetization
+Affiliate: Amazon Associates
+
+# Contact
+Email: contact@studylaptop.com
