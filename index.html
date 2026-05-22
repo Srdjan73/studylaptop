@@ -337,7 +337,6 @@ let selectedMajor=null;
 let selectedOS='Any';
 let selectedNeeds=[];
 
-  function getWhyText(l) {
   let reasons = [];
 
   const budget = parseInt(document.getElementById('budget').value);
@@ -446,6 +445,12 @@ function scoreLaptop(laptop){
   if (selectedNeeds.includes('Lightweight') && laptop.weight <= 1.35) score += 15;
   if (selectedNeeds.includes('Long Battery') && laptop.battery >= 14) score += 15;
   if (selectedNeeds.includes('Powerful CPU') && laptop.power >= 7) score += 15;
+
+  if (
+  selectedNeeds.includes('Touchscreen') &&
+  (laptop.name.includes('Surface') || laptop.name.includes('OmniBook') || laptop.name.includes('360'))
+) score += 15;
+  
   if (selectedNeeds.includes('Large Screen') && laptop.name.includes('Surface') === false) score += 5;
   if (selectedNeeds.includes('Quiet Fan') && laptop.name.includes('MacBook')) score += 10;
   if (selectedNeeds.includes('Touchscreen') && laptop.name.includes('Surface')) score += 15;
@@ -486,6 +491,13 @@ function getWhyText(laptop){
   if(selectedNeeds.includes('Powerful CPU') && laptop.power>=7){
     reasons.push('✔ Strong performance for demanding tasks');
   }
+
+  if (
+  selectedNeeds.includes('Touchscreen') &&
+  (laptop.name.includes('Surface') || laptop.name.includes('OmniBook') || laptop.name.includes('360'))
+){
+  reasons.push('✔ Touchscreen for notes and flexibility');
+}
 
   if(selectedNeeds.includes('Quiet Fan') && laptop.name.includes('MacBook')){
     reasons.push('✔ Silent / fanless design');
