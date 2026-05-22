@@ -580,7 +580,13 @@ function getRecommendations(){
   `).join('')}
 </div>
 
-      <p class="text-emerald-400 text-3xl font-bold mt-4">€${l.price}</p>
+     <p class="text-emerald-400 text-2xl font-bold mt-4">
+  From €${l.price}
+</p>
+
+<p class="text-xs text-zinc-500 mt-1">
+  Price may change. Check Amazon for latest price.
+</p>
       <p class="text-yellow-400 mt-1">⭐ ${l.rating}</p>
 
       <div class="grid grid-cols-3 gap-2 mt-4 text-xs text-center">
@@ -608,8 +614,12 @@ function getRecommendations(){
    target="_blank"
    rel="nofollow sponsored noopener"
    class="block mt-5 text-center bg-emerald-600 hover:bg-emerald-500 text-white py-3 text-lg rounded-2xl font-semibold shadow-md hover:shadow-lg transition">
-  🔥 Check Price →
+  🔥 Check current price on Amazon →
 </a>
+
+<p class="text-xs text-zinc-500 mt-2 text-center opacity-80">
+  ⚠️ Prices update frequently • Check before buying
+</p>
 
      <p class="text-xs text-zinc-500 mt-2 text-center">
   We may earn a commission at no extra cost to you.
