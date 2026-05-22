@@ -257,6 +257,7 @@ const laptops = [
     weight: 1.24,
     battery: 18,
     power: 8,
+    bestFor: 'Students who want long battery life, performance, and premium experience',
     image: 'https://m.media-amazon.com/images/I/71dFDC3H2qL._AC_SL1500_.jpg',
     description: 'Excellent battery life and premium build. Perfect for students and everyday tasks.',
     link:'https://www.amazon.de/dp/B0GR1DP4GT?tag=studylaptop21-21'
@@ -270,6 +271,7 @@ const laptops = [
     weight: 1.6,
     battery: 17,
     power: 10,
+    bestFor: 'Developers, creative work, and heavy multitasking',
     image: 'https://m.media-amazon.com/images/I/61RfKkP17SL._AC_SL1500_.jpg',
     description: 'High performance laptop for demanding creative and development work.',
     link: 'https://www.amazon.de/dp/B0DLJFC4X3?tag=studylaptop21-21'
@@ -283,6 +285,7 @@ const laptops = [
     weight: 1.7,
     battery: 12.5,
     power: 6,
+    bestFor: 'Budget students and everyday university tasks',
     image: 'https://m.media-amazon.com/images/I/71-+hjZgBlL._AC_SL1500_.jpg',
     description: 'Affordable and strong performance, ideal for everyday student use.',
     link: 'https://www.amazon.de/dp/B0FNRBBTD8?tag=studylaptop21-21'
@@ -296,6 +299,7 @@ const laptops = [
     weight: 1.2,
     battery: 14,
     power: 7,
+    bestFor: 'Design students, media, and beautiful display lovers',
     image: 'https://m.media-amazon.com/images/I/71Yohc7sg7L._AC_SL1500_.jpg',
     description: 'Beautiful OLED display, great for design and media.',
     link: 'https://www.amazon.de/dp/B0F1G823VJ?tag=studylaptop21-21'
@@ -309,6 +313,7 @@ const laptops = [
     weight: 1.17,
     battery: 12,
     power: 8,
+    bestFor: 'Premium ultrabook users and portability',
     image: 'https://m.media-amazon.com/images/I/71ZpPtbymKL._AC_SL1500_.jpg',
     description: 'Premium ultrabook with strong performance and build quality.',
     link:'https://www.amazon.de/dp/B0DJFXDPDP?tag=studylaptop21-21'
@@ -335,6 +340,7 @@ const laptops = [
     weight: 1.69,
     battery: 10,
     power: 6,
+    bestFor: 'Budget students, everyday tasks, and office work',
     image: 'https://m.media-amazon.com/images/I/81Idl0t7fnL._AC_SL1500_.jpg',
     description: 'Solid budget laptop for students with everyday needs.',
     link: 'https://www.amazon.de/dp/B0B7B83Q2S?tag=studylaptop21-21'
@@ -348,6 +354,7 @@ const laptops = [
     weight: 1.5,
     battery: 12,
     power: 7,
+    bestFor: 'Students who want touchscreen, note-taking, and flexibility',
     image: 'https://m.media-amazon.com/images/I/714z9wIKCjL._AC_SL1500_.jpg',
     description: '2-in-1 convertible laptop, great for notes and creativity.',
     link: 'https://www.amazon.de/dp/B0DYL6L87X?tag=studylaptop21-21'
@@ -361,6 +368,7 @@ const laptops = [
     weight: 1.45,
     battery: 11,
     power: 6,
+    bestFor: 'Balanced performance for study, multitasking, and productivity',
     image: 'https://m.media-amazon.com/images/I/71FOwSTAwQL._AC_SL1500_.jpg',
     description: 'Reliable mid-range laptop with good performance.',
     link: 'https://www.amazon.de/dp/B0C18YMH91?tag=studylaptop21-21'
@@ -374,6 +382,7 @@ const laptops = [
     weight: 1.2,
     battery: 13,
     power: 7,
+    bestFor: 'Lightweight portability and everyday student use',
     image: 'https://m.media-amazon.com/images/I/51kmdOugaML._AC_SL1300_.jpg',
     description: 'Slim and portable laptop with modern design.',
     link: 'https://www.amazon.de/dp/B0CTKZK2HF?tag=studylaptop21-21'
@@ -387,6 +396,7 @@ const laptops = [
     weight: 1.7,
     battery: 9,
     power: 5,
+    bestFor: 'Affordable performance for coding, study, and general use',
     image: 'https://m.media-amazon.com/images/I/71iyqq9NlPL._AC_SL1500_.jpg',
     description: 'Strong value for money with a well-balanced mix of performance.',
     link: 'https://www.amazon.de/dp/B0C9R3ZYVH?tag=studylaptop21-21'
@@ -565,10 +575,14 @@ function getRecommendations(){
         <span class="text-xs text-zinc-400">${l.matchScore}% match</span>
       </div>
 
-      <h3 class="text-2xl font-bold">${l.name}</h3>
+  <h3 class="text-2xl font-bold">${l.name}</h3>
 
-      <p class="text-xs text-zinc-400 mt-1">
-  Best for: ${selectedMajor || 'General use'}
+<p class="text-xs text-emerald-400 mt-1 font-medium">
+  🎯 ${l.bestFor}
+</p>
+
+<p class="text-zinc-400 mt-2">
+  ${l.description}
 </p>
 
       <div class="mt-3 space-y-1 text-sm">
@@ -603,8 +617,6 @@ function getRecommendations(){
           <p class="font-semibold text-white">${l.weight}kg</p>
         </div>
       </div>
-
-      <p class="text-zinc-400 mt-4">${l.description}</p>
 
       <p class="text-xs text-emerald-400 mt-2 font-medium">
        ✔ Trusted by students in 20+ countries
