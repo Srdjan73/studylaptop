@@ -645,6 +645,10 @@ function getRecommendations(){
 
   <h3 class="text-2xl font-bold">${l.name}</h3>
 
+<p class="text-xs text-emerald-400 mt-1 font-medium">
+  Recommended for your ${selectedMajor || 'study'} setup based on price, performance, battery, and portability.
+</p>
+
 ${l.matchScore >= 85 ? `
 <p class="text-xs text-emerald-400 mt-1 font-medium">
   🤖 Top match for your ${selectedMajor || 'study'} needs
