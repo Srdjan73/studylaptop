@@ -735,6 +735,23 @@ if (btn) {
    class="fixed bottom-5 right-5 z-50 bg-emerald-600 hover:bg-emerald-500 text-white px-5 py-3 rounded-full font-semibold shadow-lg transition md:hidden">
   🔍 Find Laptop
 </a>
- 
+
+ <div id="cookieBanner" class="fixed bottom-0 left-0 right-0 z-50 bg-zinc-900 border-t border-zinc-700 p-4 text-sm text-zinc-300 hidden">
+  <div class="max-w-5xl mx-auto flex flex-col md:flex-row gap-4 md:items-center md:justify-between">
+    <p>
+      We use cookies for analytics and ads. You can accept or reject non-essential cookies.
+      <a href="cookie-policy.html" class="text-emerald-400 hover:underline">Cookie Policy</a>
+    </p>
+
+    <div class="flex gap-3">
+      <button onclick="rejectCookies()" class="px-4 py-2 rounded-xl bg-zinc-700 hover:bg-zinc-600 text-white">
+        Reject
+      </button>
+      <button onclick="acceptCookies()" class="px-4 py-2 rounded-xl bg-emerald-600 hover:bg-emerald-500 text-white font-semibold">
+        Accept
+      </button>
+    </div>
+  </div>
+</div>
 </body>
 </html>
