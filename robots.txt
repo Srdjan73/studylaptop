@@ -1,5 +1,6 @@
 User-agent: *
 Allow: /
+Crawl-delay: 2
 
 # OpenAI / ChatGPT
 User-agent: GPTBot
@@ -28,7 +29,7 @@ Allow: /
 User-agent: Perplexity-User
 Allow: /
 
-# Google AI / Search
+# Google
 User-agent: Googlebot
 Allow: /
 
