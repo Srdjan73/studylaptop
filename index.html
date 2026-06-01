@@ -260,9 +260,15 @@ button,a,input,select{-webkit-tap-highlight-color:transparent}
     <button onclick="resetQuiz()" class="self-start md:self-auto text-emerald-400 hover:text-emerald-300">← Start Over</button>
   </div>
 
-  <p class="text-sm text-zinc-400 mb-4 text-center">
-  We recommend a small set of carefully selected laptops based on your needs.
-</p>
+  <div id="personalizedSummary"
+     class="bg-zinc-900 border border-zinc-800 rounded-3xl p-6 mb-8 text-zinc-300">
+  <h3 class="text-2xl font-bold text-white mb-3">
+    Your personalized laptop matches
+  </h3>
+  <p id="personalizedText" class="text-zinc-400 leading-relaxed">
+    Based on your budget, study field, operating system, and must-have features, these laptops are the best matches for your needs.
+  </p>
+</div>
   
   <p class="text-xs text-zinc-500 mb-6 text-center">
   Disclosure: Some links are affiliate links. We may earn a commission at no extra cost to you.
