@@ -962,7 +962,7 @@ window.addEventListener('load', function () {
 });
   
 document.getElementById('year').textContent=new Date().getFullYear();
-const btn = document.querySelector('a[href="#quiz"]');
+const btn = document.querySelector('.fixed.bottom-5.right-5');
 
 if (btn) {
   let lastScroll = 0;
@@ -981,10 +981,10 @@ if (btn) {
 }
 </script>
  
-<a href="#quiz"
+<button onclick="resetQuiz()"
   class="fixed bottom-5 right-5 z-50 bg-emerald-600 hover:bg-emerald-500 text-white px-5 py-3 rounded-full font-semibold shadow-lg transition transform duration-300 ease-in-out md:hidden">
   🔍 Find Laptop
-</a>
+</button>
 
 </body>
 </html>
