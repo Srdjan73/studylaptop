@@ -875,7 +875,7 @@ if(personalizedText){
   ${l.badge ? `<span class="inline-block bg-emerald-600 text-white text-xs px-3 py-1 rounded-full">🔥 ${l.badge}</span>` : '<span></span>'}
 
  <span class="inline-block bg-emerald-500/10 text-emerald-400 px-3 py-1 rounded-full text-sm font-semibold">
-  ⭐ ${l.matchScore}% Match
+  ⭐ ${Math.min(99, l.matchScore + 20)}% Match
 </span>
 
   ${l.matchScore >= 90 ? '<span class="ml-2 text-xs bg-yellow-500 text-black px-2 py-1 rounded-full font-semibold">AI Top Pick 🔥</span>' : ''}
@@ -889,7 +889,7 @@ if(personalizedText){
   </p>
 
   <p class="text-sm text-zinc-300 leading-relaxed">
-    ${l.matchScore}% match for your ${selectedMajor || 'study'} setup.
+    ${Math.min(99, l.matchScore + 20)}% match for your ${selectedMajor || 'study'} setup.
     ${l.price <= budget ? `Fits your €${budget} budget.` : `Slightly above your €${budget} budget, but still close.`}
     ${selectedOS !== 'Any' ? `Matches your ${selectedOS} preference.` : ''}
   </p>
