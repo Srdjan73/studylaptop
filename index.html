@@ -895,7 +895,9 @@ if(personalizedText){
      <div class="flex items-center justify-between gap-3 mb-4">
   ${l.badge ? `<span class="inline-block bg-emerald-600 text-white text-xs px-3 py-1 rounded-full">🔥 ${l.badge}</span>` : '<span></span>'}
 
-  <span class="text-xs text-zinc-400">${l.matchScore}% match</span>
+ <span class="inline-block bg-emerald-500/10 text-emerald-400 px-3 py-1 rounded-full text-sm font-semibold">
+  ⭐ ${l.matchScore}% Match
+</span>
 
   ${l.matchScore >= 90 ? '<span class="ml-2 text-xs bg-yellow-500 text-black px-2 py-1 rounded-full font-semibold">AI Top Pick 🔥</span>' : ''}
 </div>
