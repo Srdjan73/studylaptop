@@ -726,10 +726,16 @@ function scoreLaptop(laptop) {
   else if (laptop.os === selectedOS) score += 25;
   else score -= 25;
 
-  if (selectedMajor === 'Engineering / CS') {
-    if (laptop.power >= 7) score += 20;
-    if (laptop.os === 'Windows') score += 10;
-  }
+ if (selectedMajor === 'Engineering / CS') {
+  if (laptop.power >= 7) score += 30;
+  if (laptop.os === 'Windows') score += 20;
+
+  if (laptop.name.includes('Legion')) score += 20;
+  if (laptop.name.includes('ROG')) score += 20;
+  if (laptop.name.includes('Nitro')) score += 15;
+
+  if (laptop.os === 'macOS') score -= 10;
+}
 
   if (selectedMajor === 'Design / Creative') {
     if (laptop.name.includes('MacBook')) score += 20;
