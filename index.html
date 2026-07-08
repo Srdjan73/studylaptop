@@ -917,6 +917,10 @@ if(personalizedText){
 
   document.getElementById('resultsSummary').textContent=`${results.length} recommendation${results.length===1?'':'s'} found based on your choices.`;
 
+ const topLaptop = results[0];
+const topMatch = topLaptop ? getMatchPercent(topLaptop.matchScore) : 0;
+const topMatchLabel = getMatchLabel(topMatch);
+ 
   document.getElementById('recommendations').innerHTML=results.length?results.map(l=>`
   <div class="bg-zinc-900 rounded-3xl overflow-hidden shadow-lg border border-zinc-800 hover:scale-[1.02] hover:shadow-2xl transition duration-300">
   <img src="${l.image}" 
