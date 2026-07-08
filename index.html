@@ -1023,7 +1023,42 @@ const topMatchLabel = getMatchLabel(topMatch);
 
     </div>
   </div>
-`).join('') : `<div class="col-span-full bg-zinc-900 rounded-3xl p-8 text-center"><h3 class="text-2xl font-bold mb-3">No exact match found</h3><p class="text-zinc-400">Try increasing your budget or choosing “Any” operating system.</p></div>`;
+`).join('') + `
+  <div class="md:col-span-2 lg:col-span-3 bg-zinc-900 border border-zinc-800 rounded-3xl p-6 mt-4 overflow-x-auto">
+    <h3 class="text-2xl font-bold text-white mb-4">
+      Compare your top matches
+    </h3>
+
+    <table class="w-full text-left text-sm">
+      <thead class="text-zinc-400 border-b border-zinc-700">
+        <tr>
+          <th class="py-3 pr-4">Laptop</th>
+          <th class="py-3 pr-4">Match</th>
+          <th class="py-3 pr-4">Price</th>
+          <th class="py-3 pr-4">Battery</th>
+          <th class="py-3 pr-4">Weight</th>
+          <th class="py-3 pr-4">Link</th>
+        </tr>
+      </thead>
+      <tbody class="text-zinc-300">
+        ${results.slice(0,3).map(item => `
+          <tr class="border-b border-zinc-800">
+            <td class="py-4 pr-4 font-semibold text-white">${item.name}</td>
+            <td class="py-4 pr-4 text-emerald-400 font-bold">${getMatchPercent(item.matchScore)}%</td>
+            <td class="py-4 pr-4">€${item.price}</td>
+            <td class="py-4 pr-4">${item.battery}h</td>
+            <td class="py-4 pr-4">${item.weight}kg</td>
+            <td class="py-4 pr-4">
+              <a href="${item.link}" target="_blank" rel="nofollow sponsored noopener" class="text-emerald-400 hover:underline">
+                View
+              </a>
+            </td>
+          </tr>
+        `).join('')}
+      </tbody>
+    </table>
+  </div>
+` : `<div class="col-span-full bg-zinc-900 rounded-3xl p-8 text-center"><h3 class="text-2xl font-bold mb-3">No exact match found</h3><p class="text-zinc-400">Try increasing your budget or choosing “Any” operating system.</p></div>`;
   document.getElementById('results').scrollIntoView({behavior:'smooth',block:'start'});
 }
 
