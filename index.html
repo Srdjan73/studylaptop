@@ -936,7 +936,7 @@ const topMatchLabel = getMatchLabel(topMatch);
   ⭐ ${Math.min(99, Math.round(l.matchScore * 1.25))}% Match
 </span>
 
-  ${l.matchScore >= 90 ? '<span class="ml-2 text-xs bg-yellow-500 text-black px-2 py-1 rounded-full font-semibold">AI Top Pick 🔥</span>' : ''}
+ 
 </div>
 
   <h3 class="text-2xl font-bold">${l.name}</h3>
@@ -994,10 +994,6 @@ const topMatchLabel = getMatchLabel(topMatch);
         </div>
       </div>
 
-      <p class="text-xs text-emerald-400 mt-2 font-medium">
-       ✔ Trusted by students in 20+ countries
-      </p>
-
      <a href="${l.link}"
    target="_blank"
    rel="nofollow sponsored noopener"
@@ -1013,9 +1009,6 @@ const topMatchLabel = getMatchLabel(topMatch);
   We may earn a commission at no extra cost to you.
 </p>
 
-      <p class="text-xs text-zinc-500 text-center mt-2">
-        🔥 Popular choice among students • Often sells out
-      </p>
     </div>
   </div>
 `).join('') : `<div class="col-span-full bg-zinc-900 rounded-3xl p-8 text-center"><h3 class="text-2xl font-bold mb-3">No exact match found</h3><p class="text-zinc-400">Try increasing your budget or choosing “Any” operating system.</p></div>`;
