@@ -860,6 +860,18 @@ function getWhyText(laptop){
 
   return reasons.join('<br>');
 }
+ 
+ function getMatchPercent(score){
+  return Math.min(99, Math.round(score * 1.25));
+}
+
+function getMatchLabel(percent){
+  if(percent >= 95) return 'Excellent Match';
+  if(percent >= 90) return 'Great Match';
+  if(percent >= 80) return 'Good Match';
+  return 'Possible Match';
+}
+ 
 function getRecommendations(){
   if(!selectedMajor){alert('Please select your field of study first.');return;}
 
