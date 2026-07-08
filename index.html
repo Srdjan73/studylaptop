@@ -860,6 +860,40 @@ function getWhyText(laptop){
 
   return reasons.join('<br>');
 }
+
+ function getPersonalizedReasons(laptop, budget){
+  let reasons = [];
+
+  reasons.push(`You selected ${selectedMajor}, so we prioritized laptops that fit that study path.`);
+
+  if(laptop.price <= budget){
+    reasons.push(`It fits within your selected €${budget} budget.`);
+  } else {
+    reasons.push(`It is slightly above your €${budget} budget, but still close enough to consider.`);
+  }
+
+  if(selectedOS !== 'Any'){
+    if(laptop.os === selectedOS){
+      reasons.push(`It matches your preferred operating system: ${selectedOS}.`);
+    } else {
+      reasons.push(`It uses ${laptop.os}, which is different from your selected ${selectedOS} preference.`);
+    }
+  }
+
+  if(selectedNeeds.length){
+    reasons.push(`It also matches your selected priorities: ${selectedNeeds.join(', ')}.`);
+  }
+
+  if(selectedNeeds.includes('Long Battery') && laptop.battery >= 12){
+    reasons.push(`Its battery life is suitable for long study days.`);
+  }
+
+  if(selectedNeeds.includes('Lightweight') && laptop.weight <= 1.5){
+    reasons.push(`It is light enough to carry around campus comfortably.`);
+  }
+
+  return reasons.join('<br>');
+}
  
 function getMatchPercent(score){
  return Math.max(70, Math.min(97, Math.round(score * 0.95)));
