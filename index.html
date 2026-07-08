@@ -946,11 +946,9 @@ const topMatchLabel = getMatchLabel(topMatch);
     🎯 Why this matches you
   </p>
 
-  <p class="text-sm text-zinc-300 leading-relaxed">
-  ${getMatchPercent(l.matchScore)}% match for your ${selectedMajor || 'study'} setup.
-    ${l.price <= budget ? `Fits your €${budget} budget.` : `Slightly above your €${budget} budget, but still close.`}
-    ${selectedOS !== 'Any' ? `Matches your ${selectedOS} preference.` : ''}
-  </p>
+<p class="text-sm text-zinc-300 leading-relaxed">
+  This laptop received a ${getMatchPercent(l.matchScore)}% match because you selected <strong>${selectedMajor}</strong>, set your budget around <strong>€${budget}</strong>${selectedOS !== 'Any' ? `, and prefer <strong>${selectedOS}</strong>` : ''}. ${selectedNeeds.length ? `It also matches your selected priorities: <strong>${selectedNeeds.join(', ')}</strong>.` : `It is a strong overall fit for everyday student use.`}
+</p>
 
   <p class="text-xs text-emerald-400 mt-3 font-medium">
     Best for: ${l.bestFor}
