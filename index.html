@@ -1008,7 +1008,7 @@ const topMatchLabel = getMatchLabel(topMatch);
 </div>
 
       <div class="mt-3 space-y-1 text-sm">
-  ${getPersonalizedReasons(l, budget).split('<br>').map(r => `
+ ${getWhyText(l).split('<br>').map(r => `
     <div class="flex items-start gap-2 text-emerald-400">
       <span>✔</span>
       <span>${r.replace('✔ ','')}</span>
