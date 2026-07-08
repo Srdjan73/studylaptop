@@ -922,7 +922,7 @@ const topMatch = topLaptop ? getMatchPercent(topLaptop.matchScore) : 0;
 const topMatchLabel = getMatchLabel(topMatch);
  
   document.getElementById('recommendations').innerHTML=results.length?results.map(l=>`
-  <div class="bg-zinc-900 rounded-3xl overflow-hidden shadow-lg border border-zinc-800 hover:scale-[1.02] hover:shadow-2xl transition duration-300">
+ <div class="${results.indexOf(l) === 0 ? 'md:col-span-2 lg:col-span-3 border-emerald-500/50' : 'border-zinc-800'} bg-zinc-900 rounded-3xl overflow-hidden shadow-lg border hover:shadow-2xl transition duration-300">
   <img src="${l.image}" 
      alt="${l.name}" 
      loading="lazy"
@@ -930,7 +930,10 @@ const topMatchLabel = getMatchLabel(topMatch);
      class="w-full h-56 object-cover hover:scale-105 transition duration-300">
     <div class="p-6">
      <div class="flex items-center justify-between gap-3 mb-4">
-  ${l.badge ? `<span class="inline-block bg-emerald-600 text-white text-xs px-3 py-1 rounded-full">🔥 ${l.badge}</span>` : '<span></span>'}
+  ${results.indexOf(l) === 0 
+  ? `<span class="inline-block bg-emerald-600 text-white text-xs px-3 py-1 rounded-full">🏆 Best Match</span>` 
+  : (l.badge ? `<span class="inline-block bg-zinc-700 text-white text-xs px-3 py-1 rounded-full">${l.badge}</span>` : '<span></span>')
+}
 
  <span class="inline-flex flex-col items-center justify-center bg-emerald-500/10 border border-emerald-500/30 text-emerald-400 px-4 py-3 rounded-2xl font-semibold min-w-[110px]">
   <span class="text-3xl font-black leading-none">${getMatchPercent(l.matchScore)}%</span>
