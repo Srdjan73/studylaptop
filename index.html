@@ -861,8 +861,8 @@ function getWhyText(laptop){
   return reasons.join('<br>');
 }
  
- function getMatchPercent(score){
-  return Math.min(99, Math.round(score * 1.25));
+function getMatchPercent(score){
+    return Math.max(78, Math.min(99, Math.round(score * 1.15)));
 }
 
 function getMatchLabel(percent){
