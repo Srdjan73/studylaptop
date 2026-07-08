@@ -914,30 +914,19 @@ function getRecommendations(){
 const personalizedText =
   document.getElementById('personalizedText');
 
-let summaryParts = [];
-
-summaryParts.push(`Your budget is around €${budget}.`);
-
-summaryParts.push(`You selected ${selectedMajor}.`);
+let summary = `Based on your €${budget} budget and your choice of ${selectedMajor}`;
 
 if(selectedOS !== 'Any'){
-  summaryParts.push(`Preferred OS: ${selectedOS}.`);
+  summary += ` with ${selectedOS}`;
 }
 
 if(selectedNeeds.length){
-  summaryParts.push(
-    `Important features: ${selectedNeeds.join(', ')}.`
-  );
+  summary += `, prioritizing ${selectedNeeds.join(', ')}`;
 }
 
-summaryParts.push(
-  `These laptops were ranked based on how closely they match your requirements.`
-);
+summary += `, we ranked the laptops that best fit your requirements.`;
 
-if(personalizedText){
-  personalizedText.textContent =
-    summaryParts.join(' ');
-}
+personalizedText.textContent = summary;
  
   let results=laptops
     .filter(laptop=>laptop.price<=budget+300)
