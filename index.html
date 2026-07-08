@@ -921,7 +921,7 @@ if(personalizedText){
 const topMatch = topLaptop ? getMatchPercent(topLaptop.matchScore) : 0;
 const topMatchLabel = getMatchLabel(topMatch);
  
-  document.getElementById('recommendations').innerHTML=results.length?results.map(l=>`
+ document.getElementById('recommendations').innerHTML = results.length ? results.map(l=>`
  <div class="${results.indexOf(l) === 0 ? 'md:col-span-2 lg:col-span-3 border-emerald-500/50' : 'border-zinc-800'} bg-zinc-900 rounded-3xl overflow-hidden shadow-lg border hover:shadow-2xl transition duration-300">
   <img src="${l.image}" 
      alt="${l.name}" 
