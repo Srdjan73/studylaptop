@@ -1238,12 +1238,15 @@ ${(() => {
     <div class="grid md:grid-cols-2 gap-4">
       ${results.slice(1,3).map(item => `
         <div class="bg-zinc-950/60 border border-zinc-800 rounded-2xl p-5">
-          <h4 class="text-lg font-bold text-white">${item.name}</h4>
+         <h4 class="text-lg font-bold text-white">${item.name}</h4>
 
-          <p class="text-sm text-zinc-400 mt-2">
-            Consider this if you want a different balance of price, portability, battery life, or operating system.
-          </p>
+<p class="inline-block mt-2 bg-emerald-500/10 border border-emerald-500/20 text-emerald-400 text-xs px-3 py-1 rounded-full">
+  ${getAlternativeTag(item, budget)}
+</p>
 
+<p class="text-sm text-zinc-400 mt-3">
+  Consider this if you want a different balance of price, portability, battery life, or operating system.
+</p>
           <p class="text-sm text-emerald-400 font-semibold mt-3">
             ${getMatchPercent(item.matchScore)}% Match • €${item.price}
           </p>
