@@ -983,6 +983,67 @@ function getMatchLabel(percent){
   if(percent >= 80) return 'Good Match';
   return 'Possible Match';
 }
+
+ function buildRecommendationNarrative(laptop, budget, isBestMatch) {
+  const userChoices = `You selected ${selectedMajor}${selectedOS !== 'Any' ? `, ${selectedOS}` : ''}, a budget of around €${budget}${selectedNeeds.length ? `, and ${selectedNeeds.join(' + ')}` : ''}.`;
+
+  let studyBenefit = '';
+  let whyThis = '';
+  let tradeoff = '';
+  let conclusion = '';
+
+  if (selectedMajor === 'Engineering / CS') {
+    studyBenefit = `For Engineering / CS students, performance matters because coding, CAD, MATLAB, virtual machines, and technical projects can become demanding.`;
+
+    if (laptop.power >= 8) {
+      whyThis = `Compared to lighter ultrabooks, the ${laptop.name} gives you stronger performance for demanding student software.`;
+    } else {
+      whyThis = `This laptop is more focused on portability and everyday work than heavy engineering performance.`;
+    }
+  } else if (selectedMajor === 'Design / Creative') {
+    studyBenefit = `For creative students, screen quality, smooth performance, and reliable multitasking matter most.`;
+
+    if (laptop.name.includes('OLED') || laptop.name.includes('MacBook')) {
+      whyThis = `Compared to basic budget laptops, the ${laptop.name} is a better fit for visual work and creative projects.`;
+    } else {
+      whyThis = `This laptop can handle everyday creative tasks, but it is not the most specialized option for design work.`;
+    }
+  } else if (selectedMajor === 'Learning / Teaching') {
+    studyBenefit = `For learning and teaching, battery life, portability, and comfort during long study days are especially important.`;
+
+    whyThis = `Compared to heavier performance laptops, the ${laptop.name} is easier to carry and more practical for daily campus use.`;
+  } else {
+    studyBenefit = `For general student work, a good laptop should balance price, battery life, portability, and everyday speed.`;
+
+    whyThis = `Compared to more expensive premium models, the ${laptop.name} gives you a practical balance for normal study tasks.`;
+  }
+
+  if (laptop.price > budget) {
+    tradeoff = `One thing to keep in mind: this laptop is above your selected €${budget} budget.`;
+  } else if (selectedNeeds.includes('Powerful CPU') && laptop.battery < 8) {
+    tradeoff = `One thing to keep in mind: battery life is shorter than most ultrabooks, so you may want to carry your charger.`;
+  } else if (laptop.weight > 2.2) {
+    tradeoff = `One thing to keep in mind: this laptop is heavier than most student ultrabooks.`;
+  } else if (selectedNeeds.includes('Touchscreen') && !laptop.name.includes('Surface') && !laptop.name.includes('OmniBook') && !laptop.name.includes('x360') && !laptop.name.includes('Flip')) {
+    tradeoff = `One thing to keep in mind: this model does not appear to be a touchscreen laptop.`;
+  } else {
+    tradeoff = `One thing to keep in mind: prices change often, so check the current deal before buying.`;
+  }
+
+  if (isBestMatch) {
+    conclusion = `As someone giving practical laptop advice, this is the one I would recommend for your situation. Next step: check the current price and compare it with the alternatives below.`;
+  } else {
+    conclusion = `This is still a strong alternative if its strengths match what matters most to you. Next step: compare the price, battery life, and weight before deciding.`;
+  }
+
+  return {
+    userChoices,
+    studyBenefit,
+    whyThis,
+    tradeoff,
+    conclusion
+  };
+}
  
 function getRecommendations(){
   if(!selectedMajor){alert('Please select your field of study first.');return;}
