@@ -1011,33 +1011,19 @@ function getMatchLabel(percent){
   };
 }
 
- function getAlternativeTag(laptop, budget) {
-  if (laptop.price <= budget - 200) {
-    return '💰 Good if you want to spend less';
-  }
+function getAlternativeTag(laptop, budget) {
+    const priceNumber = parseInt(String(laptop.price).replace(/[^\d]/g, ''), 10);
 
-  if (laptop.battery >= 16) {
-    return '🔋 Good if battery life is your priority';
-  }
+    if (laptop.battery >= 14) return "⭐ Best battery";
+    if (laptop.weight <= 1.3) return "🪶 Most portable";
+    if (laptop.gpu && laptop.gpu.toLowerCase().includes("rtx")) return "🎮 Gaming capable";
+    if (laptop.ram >= 32) return "🚀 Future-proof";
+    if (laptop.display && laptop.display.toLowerCase().includes("oled")) return "🎨 Great display";
+    if (laptop.power >= 9) return "⚡ Highest performance";
+    if (!isNaN(priceNumber) && priceNumber <= budget) return "💰 Best value";
 
-  if (laptop.weight <= 1.35) {
-    return '🎒 Good if you carry your laptop every day';
-  }
-
-  if (laptop.os === 'macOS') {
-    return '🍎 Good if you prefer macOS';
-  }
-
-  if (laptop.power >= 9) {
-    return '⚡ Good if you need maximum performance';
-  }
-
-  if (laptop.power >= 8) {
-    return '💻 Good if you run demanding software';
-  }
-
-  return '✅ Well-balanced alternative';
-}
+    return "✅ Strong alternative";
+} 
  
 function getRecommendations(){
   if(!selectedMajor){alert('Please select your field of study first.');return;}
