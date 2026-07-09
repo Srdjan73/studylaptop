@@ -993,7 +993,7 @@ function getMatchLabel(percent){
   let conclusion = '';
 
   if (selectedMajor === 'Engineering / CS') {
-    studyBenefit = `For Engineering / CS students, performance matters because coding, CAD, MATLAB, virtual machines, and technical projects can become demanding.`;
+   studyBenefit = `Engineering and Computer Science students often run demanding software, so reliable performance is an important part of choosing the right laptop.`;
 
     if (laptop.power >= 8) {
       whyThis = `Compared to lighter ultrabooks, the ${laptop.name} gives you stronger performance for demanding student software.`;
@@ -1001,7 +1001,7 @@ function getMatchLabel(percent){
       whyThis = `This laptop is more focused on portability and everyday work than heavy engineering performance.`;
     }
   } else if (selectedMajor === 'Design / Creative') {
-    studyBenefit = `For creative students, screen quality, smooth performance, and reliable multitasking matter most.`;
+    studyBenefit = `Creative students benefit most from a laptop with a good display, reliable performance, and smooth multitasking.`;
 
     if (laptop.name.includes('OLED') || laptop.name.includes('MacBook')) {
       whyThis = `Compared to basic budget laptops, the ${laptop.name} is a better fit for visual work and creative projects.`;
@@ -1009,11 +1009,11 @@ function getMatchLabel(percent){
       whyThis = `This laptop can handle everyday creative tasks, but it is not the most specialized option for design work.`;
     }
   } else if (selectedMajor === 'Learning / Teaching') {
-    studyBenefit = `For learning and teaching, battery life, portability, and comfort during long study days are especially important.`;
+   studyBenefit = `For learning and teaching, battery life and portability make everyday campus use much more comfortable.`;
 
     whyThis = `Compared to heavier performance laptops, the ${laptop.name} is easier to carry and more practical for daily campus use.`;
   } else {
-    studyBenefit = `For general student work, a good laptop should balance price, battery life, portability, and everyday speed.`;
+    studyBenefit = `For everyday student work, the best choice is usually a balanced mix of performance, portability, battery life, and value.`;
 
     whyThis = `Compared to more expensive premium models, the ${laptop.name} gives you a practical balance for normal study tasks.`;
   }
