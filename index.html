@@ -1142,15 +1142,6 @@ ${(() => {
   ${l.description}
 </p>
 
-<div class="mt-4 bg-zinc-950/60 border border-zinc-800 rounded-2xl p-4">
-  <p class="text-sm font-semibold text-zinc-200 mb-2">
-    Things to consider
-  </p>
-  <p class="text-sm text-zinc-400 leading-relaxed">
-   ${buildRecommendationNarrative(l, budget, results.indexOf(l) === 0).tradeoff}
-  </p>
-</div>
-
       <div class="mt-3 space-y-1 text-sm">
  ${getWhyText(l).split('<br>').map(r => `
     <div class="flex items-start gap-2 text-emerald-400">
