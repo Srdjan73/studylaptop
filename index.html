@@ -1240,11 +1240,27 @@ ${(() => {
 </p>
 
 <p class="text-sm text-zinc-400 mt-3">
-  Consider this if you want a different balance of price, portability, battery life, or operating system.
+  A useful alternative if this laptop’s strengths match what matters most to you.
 </p>
-          <p class="text-sm text-emerald-400 font-semibold mt-3">
-            ${getMatchPercent(item.matchScore)}% Match • €${item.price}
-          </p>
+
+<div class="grid grid-cols-3 gap-2 mt-4 text-xs text-center">
+  <div class="bg-zinc-900 rounded-xl p-3">
+    <p class="text-zinc-500">Match</p>
+    <p class="font-semibold text-emerald-400">${getMatchPercent(item.matchScore)}%</p>
+  </div>
+  <div class="bg-zinc-900 rounded-xl p-3">
+    <p class="text-zinc-500">Battery</p>
+    <p class="font-semibold text-white">${item.battery}h</p>
+  </div>
+  <div class="bg-zinc-900 rounded-xl p-3">
+    <p class="text-zinc-500">Weight</p>
+    <p class="font-semibold text-white">${item.weight}kg</p>
+  </div>
+</div>
+
+<p class="text-sm text-emerald-400 font-semibold mt-3">
+  From €${item.price}
+</p>
 
           <a href="${item.link}"
              target="_blank"
