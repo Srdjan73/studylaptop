@@ -1044,6 +1044,34 @@ function getMatchLabel(percent){
     conclusion
   };
 }
+
+ function getAlternativeTag(laptop, budget) {
+  if (laptop.price <= budget - 200) {
+    return '💰 Good if you want to spend less';
+  }
+
+  if (laptop.battery >= 16) {
+    return '🔋 Good if battery life is your priority';
+  }
+
+  if (laptop.weight <= 1.35) {
+    return '🎒 Good if you carry your laptop every day';
+  }
+
+  if (laptop.os === 'macOS') {
+    return '🍎 Good if you prefer macOS';
+  }
+
+  if (laptop.power >= 9) {
+    return '⚡ Good if you need maximum performance';
+  }
+
+  if (laptop.power >= 8) {
+    return '💻 Good if you run demanding software';
+  }
+
+  return '✅ Well-balanced alternative';
+}
  
 function getRecommendations(){
   if(!selectedMajor){alert('Please select your field of study first.');return;}
