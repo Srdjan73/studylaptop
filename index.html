@@ -1124,7 +1124,9 @@ ${(() => {
 
   return `
     <div class="space-y-3 text-sm text-zinc-300 leading-relaxed">
-      <p><strong class="text-white">${narrative.userChoices}</strong></p>
+      <p class="text-base md:text-lg font-semibold text-white leading-relaxed">
+  ${narrative.userChoices}
+</p>
       <p>${narrative.studyBenefit}</p>
       <p>${narrative.whyThis}</p>
       <p class="text-zinc-400">${narrative.tradeoff}</p>
