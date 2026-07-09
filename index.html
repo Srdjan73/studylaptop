@@ -750,67 +750,147 @@ function createButtons(containerId,items,type){
 }
 
 function scoreLaptop(laptop) {
-  let score = 40;
+  let score = 0;
 
   const budget = parseInt(document.getElementById('budget').value);
+  const overBudget = laptop.price - budget;
 
-  if (laptop.price <= budget) score += 25;
-  else if (laptop.price <= budget + 300) score += 10;
-  else score -= 20;
+  // 1. Budget fit
+  if (laptop.price <= budget) {
+    score += 28;
 
-  if (selectedOS === 'Any') score += 5;
-  else if (laptop.os === selectedOS) score += 25;
-  else score -= 25;
+    const savings = budget - laptop.price;
+    if (savings >= 300) score += 4;
+    if (savings >= 500) score += 3;
+  } else if (overBudget <= 150) {
+    score += 18;
+  } else if (overBudget <= 300) {
+    score += 10;
+  } else {
+    score -= 25;
+  }
 
- if (selectedMajor === 'Engineering / CS') {
-  if (laptop.power >= 7) score += 30;
-  if (laptop.os === 'Windows') score += 20;
+  // 2. Operating system fit
+  if (selectedOS === 'Any') {
+    score += 10;
+  } else if (laptop.os === selectedOS) {
+    score += 24;
+  } else {
+    score -= 35;
+  }
 
-  if (laptop.name.includes('Legion')) score += 20;
-  if (laptop.name.includes('ROG')) score += 20;
-  if (laptop.name.includes('Nitro')) score += 15;
+  // 3. Study field fit
+  if (selectedMajor === 'Engineering / CS') {
+    score += laptop.power * 4;
 
-  if (laptop.os === 'macOS') score -= 10;
-}
+    if (laptop.power >= 9) score += 12;
+    else if (laptop.power >= 8) score += 8;
+    else if (laptop.power >= 7) score += 4;
+
+    if (laptop.os === 'Windows') score += 10;
+    if (laptop.battery < 8) score -= 4;
+    if (laptop.weight > 2.3) score -= 5;
+  }
 
   if (selectedMajor === 'Design / Creative') {
-    if (laptop.name.includes('MacBook')) score += 20;
-    if (laptop.name.includes('Zenbook') || laptop.name.includes('OLED')) score += 15;
+    score += laptop.power * 3;
+
+    if (laptop.rating >= 4.8) score += 8;
+    if (laptop.name.includes('OLED')) score += 10;
+    if (laptop.name.includes('MacBook')) score += 12;
+    if (laptop.battery >= 12) score += 5;
   }
 
   if (selectedMajor === 'Learning / Teaching') {
-    if (laptop.battery >= 14) score += 20;
-    if (laptop.weight <= 1.35) score += 15;
-    if (laptop.name.includes('MacBook') || laptop.name.includes('Surface')) score += 10;
+    if (laptop.battery >= 16) score += 20;
+    else if (laptop.battery >= 14) score += 15;
+    else if (laptop.battery >= 12) score += 8;
+
+    if (laptop.weight <= 1.25) score += 18;
+    else if (laptop.weight <= 1.4) score += 12;
+    else if (laptop.weight <= 1.6) score += 6;
+
+    if (laptop.price <= 1000) score += 8;
   }
 
   if (selectedMajor === 'General / Business') {
-    if (laptop.battery >= 12) score += 15;
-    if (laptop.weight <= 1.4) score += 15;
-    if (laptop.price <= 1000) score += 10;
+    if (laptop.battery >= 14) score += 16;
+    else if (laptop.battery >= 12) score += 10;
+
+    if (laptop.weight <= 1.25) score += 16;
+    else if (laptop.weight <= 1.4) score += 12;
+    else if (laptop.weight <= 1.6) score += 6;
+
+    if (laptop.price <= 900) score += 12;
+    else if (laptop.price <= 1200) score += 6;
+
+    if (laptop.power >= 7) score += 6;
   }
 
-  if (selectedNeeds.includes('Lightweight') && laptop.weight <= 1.35) score += 18;
-  if (selectedNeeds.includes('Long Battery') && laptop.battery >= 14) score += 18;
-  if (selectedNeeds.includes('Powerful CPU') && laptop.power >= 7) score += 18;
+  // 4. Must-have features
+  selectedNeeds.forEach(need => {
+    if (need === 'Lightweight') {
+      if (laptop.weight <= 1.25) score += 18;
+      else if (laptop.weight <= 1.4) score += 13;
+      else if (laptop.weight <= 1.6) score += 6;
+      else score -= 12;
+    }
 
-  if (
-    selectedNeeds.includes('Touchscreen') &&
-    (
-      laptop.name.includes('Surface') ||
-      laptop.name.includes('OmniBook') ||
-      laptop.name.includes('x360') ||
-      laptop.name.includes('Flip')
-    )
-  ) score += 18;
+    if (need === 'Long Battery') {
+      if (laptop.battery >= 16) score += 18;
+      else if (laptop.battery >= 14) score += 14;
+      else if (laptop.battery >= 12) score += 7;
+      else score -= 12;
+    }
 
-  if (selectedNeeds.includes('Large Screen') && laptop.name.includes('15')) score += 12;
-  if (selectedNeeds.includes('Quiet Fan') && laptop.name.includes('MacBook')) score += 12;
+    if (need === 'Powerful CPU') {
+      if (laptop.power >= 9) score += 18;
+      else if (laptop.power >= 8) score += 14;
+      else if (laptop.power >= 7) score += 8;
+      else score -= 10;
+    }
 
-  if (laptop.price <= 700 && laptop.rating >= 4.4) score += 10;
+    if (need === 'Touchscreen') {
+      const hasTouch =
+        laptop.name.includes('Surface') ||
+        laptop.name.includes('OmniBook') ||
+        laptop.name.includes('x360') ||
+        laptop.name.includes('Flip');
+
+      if (hasTouch) score += 18;
+      else score -= 8;
+    }
+
+    if (need === 'Large Screen') {
+      const hasLargeScreen =
+        laptop.name.includes('15') ||
+        laptop.name.includes('16') ||
+        laptop.name.includes('Legion') ||
+        laptop.name.includes('Nitro');
+
+      if (hasLargeScreen) score += 14;
+      else score -= 5;
+    }
+
+    if (need === 'Quiet Fan') {
+      if (laptop.name.includes('MacBook Air')) score += 18;
+      else if (laptop.name.includes('MacBook')) score += 12;
+      else if (laptop.power <= 7 && laptop.weight <= 1.5) score += 6;
+      else score -= 6;
+    }
+  });
+
+  // 5. General quality
   if (laptop.rating >= 4.8) score += 8;
+  else if (laptop.rating >= 4.6) score += 5;
+  else if (laptop.rating >= 4.4) score += 2;
 
-  return Math.max(0, Math.min(score, 99));
+  // 6. Small penalty for very heavy laptops unless user needs power
+  if (!selectedNeeds.includes('Powerful CPU') && laptop.weight > 2.2) {
+    score -= 8;
+  }
+
+  return Math.max(0, Math.min(score, 130));
 }
 
 function sortResults(results){
