@@ -1092,8 +1092,17 @@ const topMatchLabel = getMatchLabel(topMatch);
      class="w-full h-56 object-cover hover:scale-105 transition duration-300">
     <div class="p-6">
      <div class="flex items-center justify-between gap-3 mb-4">
-  ${results.indexOf(l) === 0 
-  ? `<span class="inline-block bg-emerald-600 text-white text-xs px-3 py-1 rounded-full">🏆 Best Match</span>` 
+ ${results.indexOf(l) === 0
+  ? `
+  <div class="flex flex-col">
+    <span class="inline-block bg-emerald-600 text-white text-xs px-3 py-1 rounded-full w-fit">
+      🏆 Best Overall Match
+    </span>
+    <span class="text-xs text-zinc-400 mt-2">
+      Recommended based on your answers
+    </span>
+  </div>
+  `
   : (l.badge ? `<span class="inline-block bg-zinc-700 text-white text-xs px-3 py-1 rounded-full">${l.badge}</span>` : '<span></span>')
 }
 
