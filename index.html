@@ -1024,6 +1024,40 @@ function getAlternativeTag(laptop, budget) {
 
     return "✅ Strong alternative";
 } 
+
+ function getAlternativeReason(laptop, budget) {
+    const tag = getAlternativeTag(laptop, budget);
+
+    if (tag.includes("Best battery")) {
+        return "A better choice if you want longer time away from the charger.";
+    }
+
+    if (tag.includes("Most portable")) {
+        return "Easier to carry between lectures, study sessions, and daily travel.";
+    }
+
+    if (tag.includes("Gaming")) {
+        return "A stronger option if you also want to play games or use GPU-heavy software.";
+    }
+
+    if (tag.includes("Future-proof")) {
+        return "Better suited for heavy multitasking and keeping the laptop for several years.";
+    }
+
+    if (tag.includes("Great display")) {
+        return "A good choice if screen quality matters for design, media, or long study sessions.";
+    }
+
+    if (tag.includes("Highest performance")) {
+        return "A stronger choice if you regularly run demanding software.";
+    }
+
+    if (tag.includes("Best value")) {
+        return "Offers a strong balance of performance, price, and everyday usability.";
+    }
+
+    return "A sensible backup option if its strengths match what matters most to you.";
+}
  
 function getRecommendations(){
   if(!selectedMajor){alert('Please select your field of study first.');return;}
