@@ -756,12 +756,12 @@ function scoreLaptop(laptop) {
   const overBudget = laptop.price - budget;
 
   // 1. Budget fit
-  if (laptop.price <= budget) {
-    score += 28;
+ if (laptop.price <= budget) {
+  score += 34;
 
-    const savings = budget - laptop.price;
-    if (savings >= 300) score += 4;
-    if (savings >= 500) score += 3;
+  const savings = budget - laptop.price;
+  if (savings >= 300) score += 4;
+  if (savings >= 500) score += 3;
   } else if (overBudget <= 150) {
     score += 18;
   } else if (overBudget <= 300) {
