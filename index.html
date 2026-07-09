@@ -1240,8 +1240,8 @@ ${(() => {
         </tr>
       </thead>
       <tbody class="text-zinc-300">
-        ${results.slice(0,3).map(item => `
-          <tr class="border-b border-zinc-800">
+      ${results.slice(0,3).map((item, index) => `
+          <tr class="${index === 0 ? 'bg-emerald-500/10' : ''} border-b border-zinc-800">
             <td class="py-4 pr-4 font-semibold text-white">${item.name}</td>
             <td class="py-4 pr-4 text-emerald-400 font-bold">${getMatchPercent(item.matchScore)}%</td>
             <td class="py-4 pr-4">€${item.price}</td>
