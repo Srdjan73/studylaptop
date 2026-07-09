@@ -1147,10 +1147,7 @@ ${(() => {
     Things to consider
   </p>
   <p class="text-sm text-zinc-400 leading-relaxed">
-    ${l.price > budget ? `This laptop is slightly above your selected €${budget} budget.` : `This laptop fits within your selected €${budget} budget.`}
-    ${selectedOS !== 'Any' && l.os !== selectedOS ? `It does not match your preferred operating system.` : ''}
-    ${selectedNeeds.includes('Long Battery') && l.battery < 12 ? `Battery life may be shorter than ideal for long campus days.` : ''}
-    ${selectedNeeds.includes('Lightweight') && l.weight > 1.6 ? `It may feel heavy if you carry it around campus every day.` : ''}
+   ${buildRecommendationNarrative(l, budget, results.indexOf(l) === 0).tradeoff}
   </p>
 </div>
 
