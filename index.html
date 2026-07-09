@@ -1110,9 +1110,19 @@ const topMatchLabel = getMatchLabel(topMatch);
     🎯 Why this matches you
   </p>
 
-<p class="text-sm text-zinc-300 leading-relaxed">
-  This laptop received a ${getMatchPercent(l.matchScore)}% match because you selected <strong>${selectedMajor}</strong>, set your budget around <strong>€${budget}</strong>${selectedOS !== 'Any' ? `, and prefer <strong>${selectedOS}</strong>` : ''}. ${selectedNeeds.length ? `It also matches your selected priorities: <strong>${selectedNeeds.join(', ')}</strong>.` : `It is a strong overall fit for everyday student use.`}
-</p>
+${(() => {
+  const narrative = buildRecommendationNarrative(l, budget, results.indexOf(l) === 0);
+
+  return `
+    <div class="space-y-3 text-sm text-zinc-300 leading-relaxed">
+      <p><strong class="text-white">${narrative.userChoices}</strong></p>
+      <p>${narrative.studyBenefit}</p>
+      <p>${narrative.whyThis}</p>
+      <p class="text-zinc-400">${narrative.tradeoff}</p>
+      <p class="text-emerald-400 font-medium">${narrative.conclusion}</p>
+    </div>
+  `;
+})()}
 
   <p class="text-xs text-emerald-400 mt-3 font-medium">
     Best for: ${l.bestFor}
