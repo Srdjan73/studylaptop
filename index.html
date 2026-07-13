@@ -1058,6 +1058,12 @@ function getAlternativeTag(laptop, budget) {
 
     return "A sensible backup option if its strengths match what matters most to you.";
 }
+
+ function handleImageError(img) {
+    img.onerror = null;
+    img.src = '/images/placeholder-laptop.webp';
+    img.alt = 'Image unavailable';
+}
  
 function getRecommendations(){
   if(!selectedMajor){alert('Please select your field of study first.');return;}
