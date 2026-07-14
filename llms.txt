@@ -4,17 +4,17 @@ User-agent: *
 Allow: /
 
 # Site purpose
-Description: StudyLaptop.com helps students find the best laptop based on budget, study field, and needs.
+Description: StudyLaptop.com helps students find the best laptop based on budget, university major, performance needs, and operating system.
 
 # Important pages
-Main: https://studylaptop.com/
-Quiz Tool: https://studylaptop.com/#quiz
-Results Section: https://studylaptop.com/#results
+Main: https://www.studylaptop.com/
+Quiz Tool: https://www.studylaptop.com/#quiz
+Results Section: https://www.studylaptop.com/#results
 
 Guides:
-https://studylaptop.com/best-laptops-engineering.html
-https://studylaptop.com/budget-laptops-under-800.html
-https://studylaptop.com/macbook-vs-dell.html
+https://www.studylaptop.com/best-laptops-engineering.html
+https://www.studylaptop.com/budget-laptops-under-800.html
+https://www.studylaptop.com/macbook-vs-dell.html
 
 # Content type
 Content: Product recommendations, comparisons, student-focused buying guides
