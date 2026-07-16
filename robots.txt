@@ -43,4 +43,4 @@ Allow: /
 User-agent: BingPreview
 Allow: /
 
-Sitemap: https://www.studylaptop.com/sitemap.xml
+Sitemap: https://studylaptop.com/sitemap.xml
