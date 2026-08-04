@@ -8,12 +8,12 @@
       "type": "image/png"
     },
     {
-      "src": "/studylaptop-logo-512.png",
+      "src": "/studylaptop-favicon-512x512.png",
       "sizes": "512x512",
       "type": "image/png"
     }
   ],
-  "theme_color": "#0b0f14",
-  "background_color": "#0b0f14",
+  "theme_color": "#22C55E",
+  "background_color": "#0B0F14",
   "display": "standalone"
 }
